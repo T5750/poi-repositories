@@ -25,6 +25,9 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+import util.EPlatform;
+import util.OSinfo;
+
 public class ReadExcelServlet extends HttpServlet {
 	/**
 	 * 对外提供读取excel 的方法
@@ -206,7 +209,12 @@ public class ReadExcelServlet extends HttpServlet {
 		String docsPath = request.getSession().getServletContext()
 				.getRealPath("docs");
 		String fileName = "testRead.xls";
-		String filePath = docsPath + "\\" + fileName;
+		String filePath = docsPath;
+		if (EPlatform.Windows.equals(OSinfo.getOSname())) {
+			filePath = filePath + "\\" + fileName;
+		} else {
+			filePath = filePath + "/" + fileName;
+		}
 		List<List<Object>> list = readExcel(new File(filePath));
 		request.setAttribute("list", list);
 		RequestDispatcher dispatcher = request

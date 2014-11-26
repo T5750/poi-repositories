@@ -42,6 +42,9 @@ import org.apache.poi.hssf.util.HSSFColor;
  *            byte[]表jpg格式的图片数据
  */
 public class ExportExcel<T> {
+	public static final String FILE_SEPARATOR = System.getProperties()
+			.getProperty("file.separator");
+
 	public void exportExcel(Collection<T> dataset, OutputStream out) {
 		exportExcel("测试POI导出EXCEL文档", null, dataset, out, "yyyy-MM-dd");
 	}
@@ -249,7 +252,8 @@ public class ExportExcel<T> {
 		List<Book> dataset2 = new ArrayList<Book>();
 		try {
 			BufferedInputStream bis = new BufferedInputStream(
-					new FileInputStream(imagesPath + "/book.png"));
+					new FileInputStream(imagesPath + FILE_SEPARATOR
+							+ "book.png"));
 			byte[] buf = new byte[bis.available()];
 			while ((bis.read(buf)) != -1) {
 				//
@@ -264,8 +268,10 @@ public class ExportExcel<T> {
 					"清华出版社", buf));
 			dataset2.add(new Book(5, "c#入门", "leno", 300.33f, "1234567",
 					"汤春秀出版社", buf));
-			OutputStream out = new FileOutputStream(docsPath + "\\a.xls");
-			OutputStream out2 = new FileOutputStream(docsPath + "\\b.xls");
+			OutputStream out = new FileOutputStream(docsPath + FILE_SEPARATOR
+					+ "a.xls");
+			OutputStream out2 = new FileOutputStream(docsPath + FILE_SEPARATOR
+					+ "b.xls");
 			ex.exportExcel(headers, dataset, out);
 			ex2.exportExcel(headers2, dataset2, out2);
 			out.close();

@@ -14,6 +14,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class ExcelServlet extends HttpServlet {
+	public static final String FILE_SEPARATOR = System.getProperties()
+			.getProperty("file.separator");
+
 	@Override
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
@@ -28,7 +31,8 @@ public class ExcelServlet extends HttpServlet {
 				.getRealPath("docs");
 		(new ExportExcel()).test(imagesPath, docsPath);
 		String fileName = "a.xls";
-		download(docsPath + "\\" + fileName, response);
+		String filePath = docsPath + FILE_SEPARATOR + fileName;
+		download(filePath, response);
 	}
 
 	private void download(String path, HttpServletResponse response) {
