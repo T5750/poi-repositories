@@ -29,6 +29,7 @@ function formSubmit(mapping){
 	    <a href="javascript:void(0)" onclick="formSubmit('read')">read POI</a><br>
 	    <a href="javascript:void(0)" onclick="formSubmit('export')">export POI</a><br>
 	    <a href="javascript:void(0)" onclick="formSubmit('replace')">replace POI</a><br>
+	    <a href="javascript:void(0)" onclick="formSubmit('template')">POI template</a><br>
     </form>
   </body>
 </html>
