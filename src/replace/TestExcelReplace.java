@@ -25,7 +25,7 @@ public class TestExcelReplace {
 		datas.add(vo1);
 		datas.add(vo2);
 		// d:\\template.xls为Excel模板文件，d:\\test.xls为程序根据Excel模板文件生成的新文件
-		ExcelUtil.replaceModel(datas, "d:\\template.xls", "d:\\test.xls");
+		ExcelUtil.replaceModel(datas, "d:\\replaceTemplate.xls", "d:\\eplace.xls");
 		// String folderPath = "/home" + FILE_SEPARATOR;
 		// ExcelUtil.replaceModel(datas, folderPath + "template.xls", folderPath
 		// + "test.xls");

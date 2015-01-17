@@ -17,22 +17,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
 <script type="text/javascript">
-function readExcel(){
+function formSubmit(mapping){
 	var postForm = document.getElementById("excelForm");
-	postForm.action = "<%=basePath%>read";
-	postForm.submit();
-}
-function exportExcel(){
-	var postForm = document.getElementById("excelForm");
-	postForm.action = "<%=basePath%>export";
+	postForm.action = "<%=basePath%>" + mapping;
 	postForm.submit();
 }
 </script>
   </head>
   <body>
   	<form id="excelForm" method="post">
-	    <a href="javascript:void(0)" onclick="readExcel()">read POI</a><br>
-	    <a href="javascript:void(0)" onclick="exportExcel()">export POI</a><br>
+	    <a href="javascript:void(0)" onclick="formSubmit('read')">read POI</a><br>
+	    <a href="javascript:void(0)" onclick="formSubmit('export')">export POI</a><br>
+	    <a href="javascript:void(0)" onclick="formSubmit('replace')">replace POI</a><br>
     </form>
   </body>
 </html>

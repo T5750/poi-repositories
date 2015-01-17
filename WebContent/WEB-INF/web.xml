@@ -28,4 +28,12 @@
 		<servlet-name>read</servlet-name>
 		<url-pattern>/read</url-pattern>
 	</servlet-mapping>
+	<servlet>
+		<servlet-name>replace</servlet-name>
+		<servlet-class>replace.ReplaceExcelServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>replace</servlet-name>
+		<url-pattern>/replace</url-pattern>
+	</servlet-mapping>
 </web-app>
