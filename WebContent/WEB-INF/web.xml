@@ -36,4 +36,12 @@
 		<servlet-name>replace</servlet-name>
 		<url-pattern>/replace</url-pattern>
 	</servlet-mapping>
+	<servlet>
+		<servlet-name>template</servlet-name>
+		<servlet-class>template.TemplateServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>template</servlet-name>
+		<url-pattern>/template</url-pattern>
+	</servlet-mapping>
 </web-app>
