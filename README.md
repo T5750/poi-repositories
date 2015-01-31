@@ -23,7 +23,7 @@
 以下java类可直接运行使用
 
 * read POI，对应`ReadExcel.java`
-* export POI，对应`ExportExcel.java`（需加main方法，可参考下边第一个链接）
+* export POI，对应`TestExportExcel.java`
 * replace POI，对应`TestExcelReplace.java`
 * POI template，对应`TestTemplate.java`
 
