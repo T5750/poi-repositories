@@ -25,11 +25,13 @@ function formSubmit(mapping){
 </script>
   </head>
   <body>
+  	<h2>POI</h2><hr><br>
   	<form id="excelForm" method="post">
-	    <a href="javascript:void(0)" onclick="formSubmit('read')">read POI</a><br>
-	    <a href="javascript:void(0)" onclick="formSubmit('export')">export POI</a><br>
-	    <a href="javascript:void(0)" onclick="formSubmit('replace')">replace POI</a><br>
-	    <a href="javascript:void(0)" onclick="formSubmit('template')">POI template</a><br>
+	    <a href="javascript:void(0)" onclick="formSubmit('read')">Read excel 2003 or 2007</a><br><br>
+	    <a href="javascript:void(0)" onclick="formSubmit('export')">Export excel 2003</a><br><br>
+	    <a href="javascript:void(0)" onclick="formSubmit('export2007')">Export excel 2007</a><br><br>
+	    <a href="javascript:void(0)" onclick="formSubmit('replace')">Export excel by templates,replace a cell</a><br><br>
+	    <a href="javascript:void(0)" onclick="formSubmit('template')">Export excel by templates,insert a table</a><br><br>
     </form>
   </body>
 </html>

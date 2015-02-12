@@ -21,6 +21,14 @@
 		<url-pattern>/export</url-pattern>
 	</servlet-mapping>
 	<servlet>
+		<servlet-name>export2007</servlet-name>
+		<servlet-class>testExport.Excel2007Servlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>export2007</servlet-name>
+		<url-pattern>/export2007</url-pattern>
+	</servlet-mapping>
+	<servlet>
 		<servlet-name>read</servlet-name>
 		<servlet-class>test.ReadExcelServlet</servlet-class>
 	</servlet>

@@ -13,19 +13,21 @@
 * 将源代码导入eclipse中
 * 部署项目，启动tomcat服务器
 * web页面具体路径：http://localhost:8080/poi
-* 点击read POI，可以读取03和07版Excel
-* 点击export POI，可以导出Excel
-* 点击replace POI，读取模版`replaceTemplate.xls`，替换单元格内容后导出Excel
-* 点击POI template，读取模版`template.xls`，插入新行后导出Excel
+* 点击Read excel 2003 or 2007，可以读取2003或2007版Excel
+* 点击Export excel 2003，可以导出Excel 2003版
+* 点击Export excel 2007，可以导出Excel 2007版
+* 点击Export excel by templates,replace a cell，读取模版`replaceTemplate.xls`，替换单元格内容后导出Excel
+* 点击Export excel by templates,insert a table，读取模版`template.xls`，插入表格后导出Excel
 
 ## Java Application
 
 以下java类可直接运行使用
 
-* read POI，对应`ReadExcel.java`
-* export POI，对应`TestExportExcel.java`
-* replace POI，对应`TestExcelReplace.java`
-* POI template，对应`TestTemplate.java`
+* Read excel 2003 or 2007，对应`ReadExcel.java`
+* Export excel 2003，对应`TestExportExcel.java`
+* Export excel 2007，对应`TestExportExcel2007.java`
+* Export excel by templates,replace a cell，对应`TestExcelReplace.java`
+* Export excel by templates,insert a table，对应`TestTemplate.java`
 
 ## Remarks
 

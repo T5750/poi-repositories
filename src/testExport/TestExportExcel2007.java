@@ -11,7 +11,7 @@ public class TestExportExcel2007 {
 	private static void createEXCEL() {
 		try {
 			// 输出流
-			OutputStream os = new FileOutputStream("D:/create"
+			OutputStream os = new FileOutputStream("D:/export2007_"
 					+ System.currentTimeMillis() + ".xlsx");
 			// 工作区
 			XSSFWorkbook wb = new XSSFWorkbook();

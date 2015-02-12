@@ -4,6 +4,7 @@ import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -13,7 +14,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class ExcelServlet extends HttpServlet {
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+public class Excel2007Servlet extends HttpServlet {
 	public static final String FILE_SEPARATOR = System.getProperties()
 			.getProperty("file.separator");
 
@@ -25,13 +30,33 @@ public class ExcelServlet extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String imagesPath = request.getSession().getServletContext()
-				.getRealPath("images");
 		String docsPath = request.getSession().getServletContext()
 				.getRealPath("docs");
-		(new ExportExcel()).test(imagesPath, docsPath);
-		String fileName = "export2003_a.xls";
+		String fileName = "export2007_" + System.currentTimeMillis() + ".xlsx";
 		String filePath = docsPath + FILE_SEPARATOR + fileName;
+		try {
+			// 输出流
+			OutputStream os = new FileOutputStream(filePath);
+			// 工作区
+			XSSFWorkbook wb = new XSSFWorkbook();
+			XSSFSheet sheet = wb.createSheet("test");
+			for (int i = 0; i < 1000; i++) {
+				// 创建第一个sheet
+				// 生成第一行
+				XSSFRow row = sheet.createRow(i);
+				// 给这一行的第一列赋值
+				row.createCell(0).setCellValue("column1");
+				// 给这一行的第一列赋值
+				row.createCell(1).setCellValue("column2");
+				System.out.println(i);
+			}
+			// 写文件
+			wb.write(os);
+			// 关闭输出流
+			os.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		download(filePath, response);
 	}
 

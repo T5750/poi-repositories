@@ -267,10 +267,10 @@ public class TestExportExcel<T> {
 					"清华出版社", buf));
 			dataset2.add(new Book(5, "c#入门", "leno", 300.33f, "1234567",
 					"汤春秀出版社", buf));
-			// OutputStream out = new FileOutputStream("E://a.xls");
-			// OutputStream out2 = new FileOutputStream("E://b.xls");
-			OutputStream out = new FileOutputStream("/home/a.xls");
-			OutputStream out2 = new FileOutputStream("/home/b.xls");
+			// OutputStream out = new FileOutputStream("E://export2003_a.xls");
+			// OutputStream out2 = new FileOutputStream("E://export2003_b.xls");
+			OutputStream out = new FileOutputStream("/home/export2003_a.xls");
+			OutputStream out2 = new FileOutputStream("/home/export2003_b.xls");
 			ex.exportExcel(headers, dataset, out);
 			ex2.exportExcel(headers2, dataset2, out2);
 			out.close();
