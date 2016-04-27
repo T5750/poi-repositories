@@ -275,6 +275,7 @@ public class ExportExcel<T> {
 			ex.exportExcel(headers, dataset, out);
 			ex2.exportExcel(headers2, dataset2, out2);
 			out.close();
+			out2.close();
 			JOptionPane.showMessageDialog(null, "导出成功!");
 			System.out.println("excel导出成功！");
 		} catch (FileNotFoundException e) {
