@@ -32,7 +32,7 @@ public class Excel2007Servlet extends HttpServlet {
 			throws ServletException, IOException {
 		String docsPath = request.getSession().getServletContext()
 				.getRealPath("docs");
-		String fileName = "export2007_" + System.currentTimeMillis() + ".xlsx";
+		String fileName = "export2007中文_" + System.currentTimeMillis() + ".xlsx";
 		String filePath = docsPath + FILE_SEPARATOR + fileName;
 		try {
 			// 输出流
@@ -75,7 +75,7 @@ public class Excel2007Servlet extends HttpServlet {
 			response.reset();
 			// 设置response的Header
 			response.addHeader("Content-Disposition", "attachment;filename="
-					+ new String(filename.getBytes()));
+					+ new String(filename.getBytes(),"ISO-8859-1"));
 			response.addHeader("Content-Length", "" + file.length());
 			OutputStream toClient = new BufferedOutputStream(
 					response.getOutputStream());
