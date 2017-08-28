@@ -50,7 +50,7 @@ public class ExcelServlet extends HttpServlet {
 			response.reset();
 			// 设置response的Header
 			response.addHeader("Content-Disposition", "attachment;filename="
-					+ new String(filename.getBytes()));
+					+ new String(filename.getBytes(),"ISO-8859-1"));
 			response.addHeader("Content-Length", "" + file.length());
 			OutputStream toClient = new BufferedOutputStream(
 					response.getOutputStream());
