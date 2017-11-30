@@ -41,8 +41,8 @@
 ## Links
 
 - [Java POI导出EXCEL经典实现 Java导出Excel弹出下载框](http://blog.csdn.net/evangel_z/article/details/7332535)
-
 - [Java POI读取Office excel (2003,2007)及相关jar包](http://blog.csdn.net/evangel_z/article/details/7312050)
+- [HSSF and XSSF Examples](http://poi.apache.org/spreadsheet/examples.html)
 
 ## Copyright
 
