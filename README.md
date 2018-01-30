@@ -46,4 +46,4 @@
 
 ## Copyright
 
-Copyright 2014-2017 evangel_z.
+Copyright 2014-2018 evangel_z.
