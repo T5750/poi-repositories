@@ -1,6 +1,6 @@
 # Java POI 导入 导出 EXCEL
 
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/T5750/poi/blob/master/LICENSE.md)
+[![License](https://img.shields.io/badge/license-Apache-blue.svg)](https://github.com/T5750/poi/blob/master/LICENSE.txt)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/T5750/poi/pulls)
 [![GitHub stars](https://img.shields.io/github/stars/T5750/poi.svg?style=social&label=Stars)](https://github.com/T5750/poi)
 [![GitHub forks](https://img.shields.io/github/forks/T5750/poi.svg?style=social&label=Fork)](https://github.com/T5750/poi)
