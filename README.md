@@ -6,16 +6,16 @@
 [![GitHub forks](https://img.shields.io/github/forks/T5750/poi.svg?style=social&label=Fork)](https://github.com/T5750/poi)
 
 ## Runtime Environment
-* Java version: 1.6.0_33
-* Eclipse Java EE IDE for Web Developers Version: Luna Service Release 1 (4.4.1)
-* Text file encoding: UTF-8
-* Server version: Apache Tomcat/6.0.41
-* Git version: 1.7.9.5
+- [Java 6](http://www.oracle.com/technetwork/java/javase/downloads/jdk6downloads-1902814.html)
+- [Tomcat 6](http://tomcat.apache.org/)
+- [Eclipse IDE for Java EE Developers](http://www.eclipse.org/downloads/eclipse-packages/)
+- [IntelliJ IDEA](https://www.jetbrains.com/idea/download/)
+- Text file encoding: UTF-8
 
 ## Java Web
-* 将源代码导入eclipse中
-* 部署项目，启动tomcat服务器
-* web页面具体路径：http://localhost:8080/poi
+* 将源代码导入Eclipse或IDEA中
+* 部署项目，启动Tomcat服务器
+* Web页面具体路径：[http://localhost:8080/poi](http://localhost:8080/poi)
 * 点击Read excel 2003 or 2007，可以读取2003或2007版Excel
 * 点击Export excel 2003，可以导出Excel 2003版
 * 点击Export excel 2007，可以导出Excel 2007版
@@ -32,7 +32,8 @@
 * Export excel by templates,insert a table，对应`TestTemplate.java`
 
 ## Remarks
-例子代码比较简单，仅供参考……
+- 例子代码比较简单，仅供参考……
+- 兼容Java 7, Java 8
 
 ## Links
 - [Java POI导出EXCEL经典实现 Java导出Excel弹出下载框](http://blog.csdn.net/evangel_z/article/details/7332535)
