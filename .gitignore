@@ -1,8 +1,31 @@
 /build/
-target
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
 .settings
 .springBeans
-.classpath
-.project
+.sts4-cache
+
+### IntelliJ IDEA ###
 .idea
+*.iws
 *.iml
+*.ipr
+/out/
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+classes
+**/build
+.idea*.zip
+### *.log & *.log.* ###
+*.log*
+target

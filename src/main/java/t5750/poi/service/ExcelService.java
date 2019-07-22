@@ -1,0 +1,22 @@
+package t5750.poi.service;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.List;
+
+import javax.servlet.http.HttpServletResponse;
+
+public interface ExcelService {
+	List<List<Object>> readExcel(File file) throws IOException;
+
+	void download(String path, HttpServletResponse response) throws IOException;
+
+	String exportExcel(String fileName, HttpServletResponse response)
+			throws IOException;
+
+	String template(String fileName, HttpServletResponse response)
+			throws IOException;
+
+	String replace(String fileName, HttpServletResponse response)
+			throws IOException;
+}
