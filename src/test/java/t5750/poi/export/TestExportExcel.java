@@ -24,7 +24,7 @@ public class TestExportExcel {
 	@Test
 	public void exportExcel() throws IOException {
 		String fileName = "default";
-		String docsPath = excelService.exportExcel(fileName, response);
+		String docsPath = excelService.export2003(fileName, response);
 		System.out.println(docsPath);
 	}
 }

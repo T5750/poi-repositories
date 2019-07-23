@@ -36,7 +36,13 @@ public class ExcelController {
 
 	@RequestMapping(value = "/export/{fileName}", method = RequestMethod.GET)
 	public String export(@PathVariable String fileName) throws IOException {
-		String docsPath = excelService.exportExcel(fileName, response);
+		String docsPath = excelService.export2003(fileName, response);
+		return docsPath;
+	}
+
+	@RequestMapping(value = "/export2007/{fileName}", method = RequestMethod.GET)
+	public String export2007(@PathVariable String fileName) throws IOException {
+		String docsPath = excelService.export2007(fileName, response);
 		return docsPath;
 	}
 

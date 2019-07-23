@@ -11,7 +11,10 @@ public interface ExcelService {
 
 	void download(String path, HttpServletResponse response) throws IOException;
 
-	String exportExcel(String fileName, HttpServletResponse response)
+	String export2003(String fileName, HttpServletResponse response)
+			throws IOException;
+
+	String export2007(String fileName, HttpServletResponse response)
 			throws IOException;
 
 	String template(String fileName, HttpServletResponse response)

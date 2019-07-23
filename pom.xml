@@ -5,8 +5,11 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>t5750</groupId>
 	<artifactId>poi</artifactId>
-	<version>1.0-SNAPSHOT</version>
+	<version>${revision}</version>
+	<name>Java POI</name>
+	<description>Java POI</description>
 	<properties>
+		<revision>1.0</revision>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.8</java.version>
 		<poi.version>3.10-FINAL</poi.version>

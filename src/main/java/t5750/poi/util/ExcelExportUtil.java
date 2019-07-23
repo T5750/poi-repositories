@@ -11,6 +11,9 @@ import java.util.regex.Pattern;
 
 import org.apache.poi.hssf.usermodel.*;
 import org.apache.poi.hssf.util.HSSFColor;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import t5750.poi.domain.Book;
 import t5750.poi.domain.Student;
@@ -25,21 +28,18 @@ import t5750.poi.domain.Student;
  *            byte[]表jpg格式的图片数据
  */
 public class ExcelExportUtil<T> {
-	public static final String FILE_SEPARATOR = System.getProperties()
-			.getProperty("file.separator");
-
 	public void exportExcel(Collection<T> dataset, OutputStream out) {
-		exportExcel("测试POI导出EXCEL文档", null, dataset, out, "yyyy-MM-dd");
+		exportExcel(Globals.SHEETNAME, null, dataset, out, "yyyy-MM-dd");
 	}
 
 	public void exportExcel(String[] headers, Collection<T> dataset,
 			OutputStream out) {
-		exportExcel("测试POI导出EXCEL文档", headers, dataset, out, "yyyy-MM-dd");
+		exportExcel(Globals.SHEETNAME, headers, dataset, out, "yyyy-MM-dd");
 	}
 
 	public void exportExcel(String[] headers, Collection<T> dataset,
 			OutputStream out, String pattern) {
-		exportExcel("测试POI导出EXCEL文档", headers, dataset, out, pattern);
+		exportExcel(Globals.SHEETNAME, headers, dataset, out, pattern);
 	}
 
 	/**
@@ -223,7 +223,7 @@ public class ExcelExportUtil<T> {
 		}
 	}
 
-	public void test(String imagesPath, String docsPath) {
+	public static void export2003(String imagesPath, String docsPath) {
 		// 测试学生
 		ExcelExportUtil<Student> ex = new ExcelExportUtil<Student>();
 		String[] headers = { "学号", "姓名", "年龄", "性别", "出生日期" };
@@ -253,10 +253,10 @@ public class ExcelExportUtil<T> {
 					"清华出版社", buf));
 			datasetBook.add(new Book(5, "c#入门", "leno", 300.33f, "1234567",
 					"汤春秀出版社", buf));
-			OutputStream out = new FileOutputStream(docsPath + FILE_SEPARATOR
+			OutputStream out = new FileOutputStream(docsPath + File.separator
 					+ Globals.EXPORT_STUDENT);
 			OutputStream outBook = new FileOutputStream(docsPath
-					+ FILE_SEPARATOR + Globals.EXPORT_BOOK);
+					+ File.separator + Globals.EXPORT_BOOK);
 			ex.exportExcel(headers, dataset, out);
 			exBook.exportExcel(headersBook, datasetBook, outBook);
 			out.close();
@@ -265,6 +265,32 @@ public class ExcelExportUtil<T> {
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static void export2007(String filePath) {
+		try {
+			// 输出流
+			OutputStream os = new FileOutputStream(filePath);
+			// 工作区
+			XSSFWorkbook wb = new XSSFWorkbook();
+			XSSFSheet sheet = wb.createSheet(Globals.SHEETNAME);
+			for (int i = 0; i < 1000; i++) {
+				// 创建第一个sheet
+				// 生成第一行
+				XSSFRow row = sheet.createRow(i);
+				// 给这一行的第一列赋值
+				row.createCell(0).setCellValue("column" + i);
+				// 给这一行的第一列赋值
+				row.createCell(1).setCellValue("column" + i);
+				// System.out.println(i);
+			}
+			// 写文件
+			wb.write(os);
+			// 关闭输出流
+			os.close();
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="h-100" xmlns:th="http://www.thymeleaf.org">
 <head>
-	<title>POI - List Products</title>
+	<title>Apache POI - List Products</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link rel="stylesheet" href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css"/>
@@ -19,7 +19,7 @@
 <body class="d-flex flex-column h-100">
 <header>
 	<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-		<a class="navbar-brand" th:href="@{/}">POI</a>
+		<a class="navbar-brand" th:href="@{/}">Apache POI</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
@@ -72,6 +72,7 @@
 		<div>
 			<a class="btn btn-outline-primary" th:href="@{/excel/read/testRead}" role="button">Read testRead.xls</a>
 			<a class="btn btn-outline-primary" th:href="@{/excel/export/default}" role="button">Export book.xls</a>
+			<a class="btn btn-outline-primary" th:href="@{/excel/export2007/default}" role="button">Export export2007.xls</a>
 			<a class="btn btn-outline-primary" th:href="@{/excel/template/template}" role="button">Export template.xls</a>
 			<a class="btn btn-outline-primary" th:href="@{/excel/replace/replaceTemplate}" role="button">Export replaceTemplate.xls</a>
 		</div>
@@ -79,7 +80,7 @@
 </main>
 <footer class="footer mt-auto py-3">
 	<div class="container">
-		<span class="text-muted">© 2019 <a href="https://github.com/T5750">T5750</a></span>
+		<span class="text-muted">© 2019 <a href="https://github.com/T5750" target="_blank">T5750</a></span>
 	</div>
 </footer>
 </body>

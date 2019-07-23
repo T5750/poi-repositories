@@ -215,7 +215,7 @@ public class ExcelServiceImpl implements ExcelService {
 	}
 
 	@Override
-	public String exportExcel(String fileName, HttpServletResponse response)
+	public String export2003(String fileName, HttpServletResponse response)
 			throws IOException {
 		String docsPath;
 		Resource resource = new ClassPathResource(Globals.DOC + File.separator
@@ -225,11 +225,21 @@ public class ExcelServiceImpl implements ExcelService {
 		} else {
 			String imagesPath = Globals.IMG_PATH + File.separator + "tomcat"
 					+ Globals.SUFFIX_PNG;
-			(new ExcelExportUtil()).test(imagesPath, Globals.DOC_PATH);
+			ExcelExportUtil.export2003(imagesPath, Globals.DOC_PATH);
 			docsPath = Globals.DOC_PATH + File.separator + Globals.EXPORT_BOOK;
 		}
 		download(docsPath, response);
 		return docsPath;
+	}
+
+	@Override
+	public String export2007(String fileName, HttpServletResponse response)
+			throws IOException {
+		String filePath = Globals.DOC_PATH + File.separator
+				+ Globals.EXPORT_2007;
+		ExcelExportUtil.export2007(filePath);
+		download(filePath, response);
+		return filePath;
 	}
 
 	@Override
