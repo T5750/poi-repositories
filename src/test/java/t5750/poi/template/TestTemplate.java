@@ -1,5 +1,6 @@
 package t5750.poi.template;
 
+import java.io.File;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -7,14 +8,19 @@ import java.util.Map;
 import t5750.poi.util.DateUtil;
 import t5750.poi.util.ExcelTemplateUtil;
 import t5750.poi.util.Globals;
+import t5750.poi.util.TestUtil;
 
 /**
  * 参考地址：http://mylfd.iteye.com/blog/1982101
  */
 public class TestTemplate {
+	public static final String EXCEL_NAME = "template";
+
 	public static void main(String[] args) {
-		ExcelTemplateUtil excel = ExcelTemplateUtil.getInstance().readTemplatePath(
-				"D:/template" + Globals.SUFFIX_XLS);
+		ExcelTemplateUtil excel = ExcelTemplateUtil.getInstance()
+				.readTemplatePath(
+						TestUtil.DOC_PATH + File.separator + EXCEL_NAME
+								+ Globals.SUFFIX_XLS);
 		for (int i = 0; i < 5; i++) {
 			excel.creatNewRow();
 			excel.createNewCol("Col" + i);
@@ -27,7 +33,8 @@ public class TestTemplate {
 		datas.put("date", DateUtil.format(new Date()));
 		excel.replaceFind(datas);
 		excel.insertSer();
-		excel.writeToFile("D:/template" + System.currentTimeMillis()
-				+ Globals.SUFFIX_XLS);
+		excel.writeToFile(TestUtil.DOC_PATH + File.separator + EXCEL_NAME
+				+ System.currentTimeMillis() + Globals.SUFFIX_XLS);
+		System.out.println(EXCEL_NAME + Globals.SUFFIX_XLSX + TestUtil.SUCCESS);
 	}
 }

@@ -1,16 +1,20 @@
 package t5750.poi.replace;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
 import t5750.poi.command.ExcelReplaceDataVO;
 import t5750.poi.util.ExcelReplaceUtil;
 import t5750.poi.util.Globals;
+import t5750.poi.util.TestUtil;
 
 /**
  * 参考地址：http://yaoh6688.iteye.com/blog/1152273
  */
 public class TestExcelReplace {
+	public static final String EXCEL_NAME = "replaceTemplate";
+
 	public static void main(String[] args) {
 		List<ExcelReplaceDataVO> datas = new ArrayList<ExcelReplaceDataVO>();
 		// 找到第14行第2列的company，用"XXX有限公司"替换掉company
@@ -27,13 +31,11 @@ public class TestExcelReplace {
 		voContent.setValue("替换的内容");
 		datas.add(voCompany);
 		datas.add(voContent);
-		// d:\\template.xls为Excel模板文件，d:\\test.xls为程序根据Excel模板文件生成的新文件
-		ExcelReplaceUtil.replaceModel(datas, "d:\\replaceTemplate"
-				+ Globals.SUFFIX_XLS,
-				"d:\\replaceTemplate" + System.currentTimeMillis()
-						+ Globals.SUFFIX_XLS);
-		// String folderPath = "/home" + FILE_SEPARATOR;
-		// ExcelUtil.replaceModel(datas, folderPath + "template.xls", folderPath
-		// + "test.xls");
+		// replaceTemplate.xls为Excel模板文件，d:\\replaceTemplate*.xls为程序根据Excel模板文件生成的新文件
+		ExcelReplaceUtil.replaceModel(datas, TestUtil.DOC_PATH + File.separator
+				+ EXCEL_NAME + Globals.SUFFIX_XLS, TestUtil.DOC_PATH
+				+ File.separator + EXCEL_NAME + System.currentTimeMillis()
+				+ Globals.SUFFIX_XLS);
+		System.out.println(EXCEL_NAME + Globals.SUFFIX_XLSX + TestUtil.SUCCESS);
 	}
 }
