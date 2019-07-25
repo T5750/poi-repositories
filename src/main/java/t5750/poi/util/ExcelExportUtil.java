@@ -228,9 +228,9 @@ public class ExcelExportUtil<T> {
 		ExcelExportUtil<Student> ex = new ExcelExportUtil<Student>();
 		String[] headers = { "学号", "姓名", "年龄", "性别", "出生日期" };
 		List<Student> dataset = new ArrayList<Student>();
-		dataset.add(new Student(10000001, "张三", 20, true, new Date()));
-		dataset.add(new Student(20000002, "李四", 24, false, new Date()));
-		dataset.add(new Student(30000003, "王五", 22, true, new Date()));
+		dataset.add(new Student(10000001L, "张三", 20, true, new Date()));
+		dataset.add(new Student(20000002L, "李四", 24, false, new Date()));
+		dataset.add(new Student(30000003L, "王五", 22, true, new Date()));
 		// 测试图书
 		ExcelExportUtil<Book> exBook = new ExcelExportUtil<Book>();
 		String[] headersBook = { "图书编号", "图书名称", "图书作者", "图书价格", "图书ISBN",

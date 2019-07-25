@@ -3,16 +3,16 @@ package t5750.poi.domain;
 import java.util.Date;
 
 public class Student {
-	private long id;
+	private Long id;
 	private String name;
-	private int age;
-	private boolean sex;
+	private Integer age;
+	private Boolean sex;
 	private Date birthday;
 
 	public Student() {
 	}
 
-	public Student(long id, String name, int age, boolean sex, Date birthday) {
+	public Student(Long id, String name, Integer age, Boolean sex, Date birthday) {
 		this.id = id;
 		this.name = name;
 		this.age = age;
@@ -20,11 +20,11 @@ public class Student {
 		this.birthday = birthday;
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -36,19 +36,19 @@ public class Student {
 		this.name = name;
 	}
 
-	public int getAge() {
+	public Integer getAge() {
 		return age;
 	}
 
-	public void setAge(int age) {
+	public void setAge(Integer age) {
 		this.age = age;
 	}
 
-	public boolean getSex() {
+	public Boolean getSex() {
 		return sex;
 	}
 
-	public void setSex(boolean sex) {
+	public void setSex(Boolean sex) {
 		this.sex = sex;
 	}
 

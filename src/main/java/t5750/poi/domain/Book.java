@@ -1,10 +1,10 @@
 package t5750.poi.domain;
 
 public class Book {
-	private int bookId;
+	private Integer bookId;
 	private String name;
 	private String author;
-	private float price;
+	private Float price;
 	private String isbn;
 	private String pubName;
 	private byte[] preface;
@@ -12,7 +12,7 @@ public class Book {
 	public Book() {
 	}
 
-	public Book(int bookId, String name, String author, float price,
+	public Book(Integer bookId, String name, String author, Float price,
 			String isbn, String pubName, byte[] preface) {
 		this.bookId = bookId;
 		this.name = name;
@@ -23,11 +23,11 @@ public class Book {
 		this.preface = preface;
 	}
 
-	public int getBookId() {
+	public Integer getBookId() {
 		return bookId;
 	}
 
-	public void setBookId(int bookId) {
+	public void setBookId(Integer bookId) {
 		this.bookId = bookId;
 	}
 
@@ -47,11 +47,11 @@ public class Book {
 		this.author = author;
 	}
 
-	public float getPrice() {
+	public Float getPrice() {
 		return price;
 	}
 
-	public void setPrice(float price) {
+	public void setPrice(Float price) {
 		this.price = price;
 	}
 
