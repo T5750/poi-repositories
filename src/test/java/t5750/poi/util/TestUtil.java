@@ -10,4 +10,7 @@ public class TestUtil {
 			"test-classes", "classes");
 	public static final String SUCCESS = " written successfully...";
 	public static final String RICH_TEXT_STRING = "o9qAGtxS7K25ItIvnNXd_xBcCe_0";
+	public static final String REGEX = "_";
+	public static final String[] RICH_TEXT_STRINGS = RICH_TEXT_STRING
+			.split(REGEX);
 }

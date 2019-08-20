@@ -9,7 +9,7 @@ import org.apache.poi.hssf.usermodel.HSSFFont;
 import org.apache.poi.hssf.usermodel.HSSFRichTextString;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.hssf.util.HSSFColor;
+import org.apache.poi.ss.usermodel.IndexedColors;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -53,7 +53,7 @@ public class TestExportExcel {
 			HSSFRichTextString richString = new HSSFRichTextString(
 					TestUtil.RICH_TEXT_STRING);
 			HSSFFont font = wb.createFont();
-			font.setColor(HSSFColor.BLUE.index);
+			font.setColor(IndexedColors.BLUE.index);
 			richString.applyFont(font);
 			sheet.createRow(0).createCell(0).setCellValue(richString);
 			wb.write(os);
