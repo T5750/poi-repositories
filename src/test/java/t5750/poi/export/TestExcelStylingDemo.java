@@ -3,7 +3,6 @@ package t5750.poi.export;
 import java.io.File;
 import java.io.FileOutputStream;
 
-import org.apache.poi.hssf.record.CFRuleRecord.ComparisonOperator;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.ss.util.CellRangeAddress;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
