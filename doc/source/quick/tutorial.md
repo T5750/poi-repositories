@@ -1,12 +1,4 @@
-# Apache POI
-
-[![License](https://img.shields.io/badge/license-Apache-blue.svg)](https://github.com/T5750/poi/blob/master/LICENSE.txt)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/T5750/poi/pulls)
-[![GitHub stars](https://img.shields.io/github/stars/T5750/poi.svg?style=social&label=Stars)](https://github.com/T5750/poi)
-[![GitHub forks](https://img.shields.io/github/forks/T5750/poi.svg?style=social&label=Fork)](https://github.com/T5750/poi)
-
-## Docs
-- https://poix.readthedocs.io
+# Tutorial
 
 ## Getting Started
 ![apache-poi](https://www.wailian.work/images/2019/07/23/apache-poi-min-min.png)
@@ -76,6 +68,3 @@ View servlet branch at https://github.com/T5750/poi/tree/servlet.
 - [Java POI读取Office excel (2003,2007)及相关jar包](https://blog.csdn.net/evangel_z/article/details/7312050)
 - [HSSF and XSSF Examples](http://poi.apache.org/spreadsheet/examples.html)
 - [Apache POI – Read and Write Excel File in Java](https://howtodoinjava.com/library/readingwriting-excel-files-in-java-poi-tutorial/)
-
-## License
-This project is Open Source software released under the [Apache 2.0 license](http://www.apache.org/licenses/LICENSE-2.0.html).
