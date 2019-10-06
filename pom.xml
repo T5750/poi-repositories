@@ -12,7 +12,7 @@
 		<revision>1.0</revision>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.8</java.version>
-		<poi.version>3.10-FINAL</poi.version>
+		<poi.version>3.17</poi.version>
 		<spring-boot-version>1.5.3.RELEASE</spring-boot-version>
 		<relativePath/>
 		<!-- lookup parent from repository -->

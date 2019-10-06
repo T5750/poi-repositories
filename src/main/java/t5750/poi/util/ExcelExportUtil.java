@@ -11,6 +11,7 @@ import java.util.regex.Pattern;
 
 import org.apache.poi.hssf.usermodel.*;
 import org.apache.poi.hssf.util.HSSFColor;
+import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -70,32 +71,32 @@ public class ExcelExportUtil<T> {
 		HSSFCellStyle style = workbook.createCellStyle();
 		// 设置这些样式
 		style.setFillForegroundColor(HSSFColor.SKY_BLUE.index);
-		style.setFillPattern(HSSFCellStyle.SOLID_FOREGROUND);
-		style.setBorderBottom(HSSFCellStyle.BORDER_THIN);
-		style.setBorderLeft(HSSFCellStyle.BORDER_THIN);
-		style.setBorderRight(HSSFCellStyle.BORDER_THIN);
-		style.setBorderTop(HSSFCellStyle.BORDER_THIN);
-		style.setAlignment(HSSFCellStyle.ALIGN_CENTER);
+		style.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+		style.setBorderBottom(BorderStyle.THIN);
+		style.setBorderLeft(BorderStyle.THIN);
+		style.setBorderRight(BorderStyle.THIN);
+		style.setBorderTop(BorderStyle.THIN);
+		style.setAlignment(HorizontalAlignment.CENTER);
 		// 生成一个字体
 		HSSFFont font = workbook.createFont();
 		font.setColor(HSSFColor.VIOLET.index);
 		font.setFontHeightInPoints((short) 12);
-		font.setBoldweight(HSSFFont.BOLDWEIGHT_BOLD);
+		font.setBold(true);
 		// 把字体应用到当前的样式
 		style.setFont(font);
 		// 生成并设置另一个样式
 		HSSFCellStyle style2 = workbook.createCellStyle();
 		style2.setFillForegroundColor(HSSFColor.LIGHT_YELLOW.index);
-		style2.setFillPattern(HSSFCellStyle.SOLID_FOREGROUND);
-		style2.setBorderBottom(HSSFCellStyle.BORDER_THIN);
-		style2.setBorderLeft(HSSFCellStyle.BORDER_THIN);
-		style2.setBorderRight(HSSFCellStyle.BORDER_THIN);
-		style2.setBorderTop(HSSFCellStyle.BORDER_THIN);
-		style2.setAlignment(HSSFCellStyle.ALIGN_CENTER);
-		style2.setVerticalAlignment(HSSFCellStyle.VERTICAL_CENTER);
+		style2.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+		style2.setBorderBottom(BorderStyle.THIN);
+		style2.setBorderLeft(BorderStyle.THIN);
+		style2.setBorderRight(BorderStyle.THIN);
+		style2.setBorderTop(BorderStyle.THIN);
+		style2.setAlignment(HorizontalAlignment.CENTER);
+		style2.setVerticalAlignment(VerticalAlignment.CENTER);
 		// 生成另一个字体
 		HSSFFont font2 = workbook.createFont();
-		font2.setBoldweight(HSSFFont.BOLDWEIGHT_NORMAL);
+		font2.setBold(false);
 		// 把字体应用到当前的样式
 		style2.setFont(font2);
 		// 声明一个画图的顶级管理器
@@ -178,7 +179,7 @@ public class ExcelExportUtil<T> {
 						byte[] bsValue = (byte[]) value;
 						HSSFClientAnchor anchor = new HSSFClientAnchor(0, 0,
 								1023, 255, (short) 6, index, (short) 6, index);
-						anchor.setAnchorType(2);
+						anchor.setAnchorType(ClientAnchor.AnchorType.MOVE_DONT_RESIZE);
 						patriarch.createPicture(anchor, workbook.addPicture(
 								bsValue, HSSFWorkbook.PICTURE_TYPE_JPEG));
 					} else {
