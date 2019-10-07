@@ -8,6 +8,7 @@
 	<version>${revision}</version>
 	<name>Java POI</name>
 	<description>Java POI</description>
+	<packaging>war</packaging>
 	<properties>
 		<revision>1.0</revision>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -79,6 +80,23 @@
 					<target>${java.version}</target>
 					<encoding>${project.build.sourceEncoding}</encoding>
 				</configuration>
+			</plugin>
+			<!--<plugin>-->
+			<!--<groupId>org.springframework.boot</groupId>-->
+			<!--<artifactId>spring-boot-maven-plugin</artifactId>-->
+			<!--<version>${spring-boot-version}</version>-->
+			<!--<executions>-->
+			<!--<execution>-->
+			<!--<goals>-->
+			<!--<goal>repackage</goal>-->
+			<!--</goals>-->
+			<!--</execution>-->
+			<!--</executions>-->
+			<!--</plugin>-->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>3.2.3</version>
 			</plugin>
 		</plugins>
 	</build>

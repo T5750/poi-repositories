@@ -13,12 +13,12 @@
 - `TestExcelFormulaDemo`, `TestExcelStylingDemo`, `TestAll`
 
 ### Runtime Environment
-- [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+- [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 - [Spring Framework 4.3.8.RELEASE](http://projects.spring.io/spring-framework)
 - [Spring Boot 1.5.3.RELEASE](https://projects.spring.io/spring-boot)
 - [Derby 10.13.1.1](https://db.apache.org/derby/)
 - [Hibernate ORM 5.0.12.Final](http://hibernate.org/orm)
-- [POI 3.10-FINAL](https://poi.apache.org/download.html)
+- [POI 3.17](https://poi.apache.org/download.html)
 - [Bootstrap 4.3.1](https://github.com/twbs/bootstrap)
 
 ### Classes
@@ -58,10 +58,10 @@ Another useful class **FormulaEvaluator** is used to evaluate the formula cells 
 ## Getting Help
 Having trouble with T5750's POI? We’d like to help!
 - Ask a question on [CSDN](https://blog.csdn.net/evangel_z/article/details/7332535).
-- Report bugs at https://github.com/T5750/poi/issues.
+- Report bugs at [https://github.com/T5750/poi/issues](https://github.com/T5750/poi/issues).
 
 ## Branch
-View servlet branch at https://github.com/T5750/poi/tree/servlet.
+View servlet branch at [https://github.com/T5750/poi/tree/servlet](https://github.com/T5750/poi/tree/servlet).
 
 ## References
 - [Java POI导出EXCEL经典实现 Java导出Excel弹出下载框](https://blog.csdn.net/evangel_z/article/details/7332535)
