@@ -30,8 +30,20 @@ Windows中设置4个环境变量：`JAVA_HOME`、`CLASSPATH`、`M2_HOME`、`PATH
 ```
 git clone https://github.com/T5750/poi.git
 cd poi
+```
+
+### Embedded Tomcat
+```
+mvn clean spring-boot:run
+```
+
+### Tomcat
+```
 mvn clean package
 ```
 - 复制`target/poi.war`到`path/apache-tomcat-8.5.46/webapps`
 - 运行`path/apache-tomcat-8.5.46/bin/startup.bat`
 - [http://localhost:8080/poi](http://localhost:8080/poi)
+
+### IDE
+- `PoiApplication`

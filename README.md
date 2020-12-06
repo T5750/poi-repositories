@@ -11,7 +11,17 @@
 ## Getting Started
 ![apache-poi](https://www.wailian.work/images/2019/07/23/apache-poi-min-min.png)
 
-- `PoiApplication`
+Step 1: Download
+```
+git clone https://github.com/T5750/poi.git
+cd poi
+```
+
+Step 2: Start Server
+```
+mvn clean spring-boot:run
+```
+[http://localhost:8080/poi](http://localhost:8080/poi)
 
 ### Test
 - `TestReadExcel`, `TestReadExcelDemo`
