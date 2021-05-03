@@ -15,7 +15,8 @@ import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 import t5750.poi.domain.Book;
 import t5750.poi.domain.Student;
 
@@ -102,8 +103,8 @@ public class ExcelExportUtil<T> {
 		// 声明一个画图的顶级管理器
 		HSSFPatriarch patriarch = sheet.createDrawingPatriarch();
 		// 定义注释的大小和位置,详见文档
-		HSSFComment comment = patriarch.createComment(new HSSFClientAnchor(0,
-				0, 0, 0, (short) 4, 2, (short) 6, 5));
+		HSSFComment comment = patriarch.createComment(
+				new HSSFClientAnchor(0, 0, 0, 0, (short) 4, 2, (short) 6, 5));
 		// 设置注释内容
 		comment.setString(new HSSFRichTextString("可以在POI中添加注释！"));
 		// 设置注释作者，当鼠标移动到单元格上是可以在状态栏中看到该内容.
@@ -179,7 +180,8 @@ public class ExcelExportUtil<T> {
 						byte[] bsValue = (byte[]) value;
 						HSSFClientAnchor anchor = new HSSFClientAnchor(0, 0,
 								1023, 255, (short) 6, index, (short) 6, index);
-						anchor.setAnchorType(ClientAnchor.AnchorType.MOVE_DONT_RESIZE);
+						anchor.setAnchorType(
+								ClientAnchor.AnchorType.MOVE_DONT_RESIZE);
 						patriarch.createPicture(anchor, workbook.addPicture(
 								bsValue, HSSFWorkbook.PICTURE_TYPE_JPEG));
 					} else {
@@ -238,26 +240,27 @@ public class ExcelExportUtil<T> {
 				"图书出版社", "封面图片" };
 		List<Book> datasetBook = new ArrayList<Book>();
 		try {
-			BufferedInputStream bis = new BufferedInputStream(
-					new FileInputStream(imagesPath));
+			Resource resource = new ClassPathResource(imagesPath);
+			InputStream is = resource.getInputStream();
+			BufferedInputStream bis = new BufferedInputStream(is);
 			byte[] buf = new byte[bis.available()];
 			while ((bis.read(buf)) != -1) {
 				//
 			}
 			datasetBook.add(new Book(1, "jsp", "leno", 300.33f, "1234567",
 					"清华出版社", buf));
-			datasetBook.add(new Book(2, "java编程思想", "brucl", 300.33f,
-					"1234567", "阳光出版社", buf));
-			datasetBook.add(new Book(3, "DOM艺术", "lenotang", 300.33f,
-					"1234567", "清华出版社", buf));
+			datasetBook.add(new Book(2, "java编程思想", "brucl", 300.33f, "1234567",
+					"阳光出版社", buf));
+			datasetBook.add(new Book(3, "DOM艺术", "lenotang", 300.33f, "1234567",
+					"清华出版社", buf));
 			datasetBook.add(new Book(4, "c++经典", "leno", 400.33f, "1234567",
 					"清华出版社", buf));
 			datasetBook.add(new Book(5, "c#入门", "leno", 300.33f, "1234567",
 					"汤春秀出版社", buf));
-			OutputStream out = new FileOutputStream(docsPath + File.separator
-					+ Globals.EXPORT_STUDENT);
-			OutputStream outBook = new FileOutputStream(docsPath
-					+ File.separator + Globals.EXPORT_BOOK);
+			OutputStream out = new FileOutputStream(
+					docsPath + File.separator + Globals.EXPORT_STUDENT);
+			OutputStream outBook = new FileOutputStream(
+					docsPath + File.separator + Globals.EXPORT_BOOK);
 			ex.exportExcel(headers, dataset, out);
 			exBook.exportExcel(headersBook, datasetBook, outBook);
 			out.close();

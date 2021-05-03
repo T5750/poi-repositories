@@ -67,8 +67,8 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public Product saveOrUpdateProductForm(ProductForm productForm) {
-		Product savedProduct = saveOrUpdate(productFormToProduct
-				.convert(productForm));
+		Product savedProduct = saveOrUpdate(
+				productFormToProduct.convert(productForm));
 		System.out.println("Saved Product Id: " + savedProduct.getId());
 		return savedProduct;
 	}
@@ -84,7 +84,7 @@ public class ProductServiceImpl implements ProductService {
 			OutputStream out = new FileOutputStream(docsPath);
 			ex.exportExcel(headers, products, out);
 			out.close();
-			excelService.download(docsPath, response);
+			excelService.download(Globals.EXPORT_PRODUCT, docsPath, response);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {

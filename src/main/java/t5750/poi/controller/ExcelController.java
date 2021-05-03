@@ -2,8 +2,8 @@ package t5750.poi.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
-
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
 import t5750.poi.service.ExcelService;
 import t5750.poi.util.Globals;
 
@@ -27,10 +26,11 @@ public class ExcelController {
 
 	@RequestMapping(value = "/read/{fileName}", method = RequestMethod.GET)
 	public List read(@PathVariable String fileName) throws IOException {
-		Resource resource = new ClassPathResource(Globals.DOC + File.separator
-				+ fileName + Globals.SUFFIX_XLS);
-		File file = resource.getFile();
-		List<List<Object>> list = excelService.readExcel(file);
+		Resource resource = new ClassPathResource(
+				Globals.DOC + File.separator + fileName + Globals.SUFFIX_XLS);
+		InputStream is = resource.getInputStream();
+		List<List<Object>> list = excelService.readExcel(is,
+				Globals.SUFFIX_XLS);
 		return list;
 	}
 

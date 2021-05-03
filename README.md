@@ -19,6 +19,8 @@ cd poi
 
 Step 2: Start Server
 ```
+docker-compose up -d
+# or
 mvn clean spring-boot:run
 ```
 [http://localhost:8080/poi](http://localhost:8080/poi)
@@ -38,6 +40,7 @@ mvn clean spring-boot:run
 - [Hibernate ORM 5.0.12.Final](http://hibernate.org/orm)
 - [POI 3.17](https://poi.apache.org/download.html)
 - [Bootstrap 4.3.1](https://github.com/twbs/bootstrap)
+- [Docker 19.x](https://www.docker.com/)
 
 ### Classes
 1. **HSSF, XSSF and XSSF classes**

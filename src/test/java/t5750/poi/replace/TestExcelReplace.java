@@ -1,6 +1,7 @@
 package t5750.poi.replace;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +16,7 @@ import t5750.poi.util.TestUtil;
 public class TestExcelReplace {
 	public static final String EXCEL_NAME = "replaceTemplate";
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws FileNotFoundException {
 		List<ExcelReplaceDataVO> datas = new ArrayList<ExcelReplaceDataVO>();
 		// 找到第14行第2列的company，用"XXX有限公司"替换掉company
 		ExcelReplaceDataVO voCompany = new ExcelReplaceDataVO();
@@ -32,10 +33,11 @@ public class TestExcelReplace {
 		datas.add(voCompany);
 		datas.add(voContent);
 		// replaceTemplate.xls为Excel模板文件，d:\\replaceTemplate*.xls为程序根据Excel模板文件生成的新文件
-		ExcelReplaceUtil.replaceModel(datas, TestUtil.DOC_PATH + File.separator
-				+ EXCEL_NAME + Globals.SUFFIX_XLS, TestUtil.DOC_PATH
-				+ File.separator + EXCEL_NAME + System.currentTimeMillis()
-				+ Globals.SUFFIX_XLS);
+		ExcelReplaceUtil.replaceModel(datas,
+				TestUtil.DOC_PATH + File.separator + EXCEL_NAME
+						+ Globals.SUFFIX_XLS,
+				TestUtil.DOC_PATH + File.separator + EXCEL_NAME
+						+ System.currentTimeMillis() + Globals.SUFFIX_XLS);
 		System.out.println(EXCEL_NAME + Globals.SUFFIX_XLSX + TestUtil.SUCCESS);
 	}
 }

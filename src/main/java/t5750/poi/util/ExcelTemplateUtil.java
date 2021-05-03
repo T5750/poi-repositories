@@ -54,8 +54,8 @@ public class ExcelTemplateUtil {
 	 */
 	public ExcelTemplateUtil readTemplateClassPath(String calsspath) {
 		try {
-			workbook = WorkbookFactory.create(ExcelTemplateUtil.class
-					.getResourceAsStream(calsspath));
+			workbook = WorkbookFactory.create(
+					ExcelTemplateUtil.class.getResourceAsStream(calsspath));
 			initTemplate();
 		} catch (InvalidFormatException e) {
 			e.printStackTrace();
@@ -77,6 +77,20 @@ public class ExcelTemplateUtil {
 	public ExcelTemplateUtil readTemplatePath(String path) {
 		try {
 			workbook = WorkbookFactory.create(new File(path));
+			initTemplate();
+		} catch (InvalidFormatException e) {
+			e.printStackTrace();
+			throw new RuntimeException("读取模板格式有错!请检查.");
+		} catch (IOException e) {
+			e.printStackTrace();
+			throw new RuntimeException("读取模板文件不存在!请检查.");
+		}
+		return this;
+	}
+
+	public ExcelTemplateUtil readTemplatePath(InputStream is) {
+		try {
+			workbook = WorkbookFactory.create(is);
 			initTemplate();
 		} catch (InvalidFormatException e) {
 			e.printStackTrace();

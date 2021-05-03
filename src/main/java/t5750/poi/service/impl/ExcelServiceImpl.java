@@ -28,8 +28,8 @@ public class ExcelServiceImpl implements ExcelService {
 	@Override
 	public List<List<Object>> readExcel(File file) throws IOException {
 		String fileName = file.getName();
-		String extension = fileName.lastIndexOf(".") == -1 ? "" : fileName
-				.substring(fileName.lastIndexOf(".") + 1);
+		String extension = fileName.lastIndexOf(".") == -1 ? ""
+				: fileName.substring(fileName.lastIndexOf(".") + 1);
 		if ("xls".equals(extension)) {
 			return readExcel2003(file);
 		} else if ("xlsx".equals(extension)) {
@@ -39,12 +39,25 @@ public class ExcelServiceImpl implements ExcelService {
 		}
 	}
 
+	@Override
+	public List<List<Object>> readExcel(InputStream is, String suffix)
+			throws IOException {
+		if (Globals.SUFFIX_XLS.equals(suffix)) {
+			return readExcel2003(is);
+		} else if (Globals.SUFFIX_XLSX.equals(suffix)) {
+			return readExcel2007(is);
+		} else {
+			throw new IOException("不支持的文件类型");
+		}
+	}
+
 	/**
 	 * 读取 office 2003 excel
 	 */
-	private List<List<Object>> readExcel2003(File file) throws IOException {
+	private List<List<Object>> readExcel2003(InputStream is)
+			throws IOException {
 		List<List<Object>> list = new LinkedList<List<Object>>();
-		HSSFWorkbook hwb = new HSSFWorkbook(new FileInputStream(file));
+		HSSFWorkbook hwb = new HSSFWorkbook(is);
 		HSSFSheet sheet = hwb.getSheetAt(0);
 		Object value = null;
 		HSSFRow row = null;
@@ -59,7 +72,8 @@ public class ExcelServiceImpl implements ExcelService {
 				counter++;
 			}
 			List<Object> linked = new LinkedList<Object>();
-			for (int j = row.getFirstCellNum(); j <= row.getLastCellNum(); j++) {
+			for (int j = row.getFirstCellNum(); j <= row
+					.getLastCellNum(); j++) {
 				cell = row.getCell(j);
 				if (cell == null) {
 					continue;
@@ -78,17 +92,17 @@ public class ExcelServiceImpl implements ExcelService {
 				case XSSFCell.CELL_TYPE_NUMERIC:
 					if ("@".equals(cell.getCellStyle().getDataFormatString())) {
 						value = df.format(cell.getNumericCellValue());
-					} else if ("General".equals(cell.getCellStyle()
-							.getDataFormatString())) {
+					} else if ("General".equals(
+							cell.getCellStyle().getDataFormatString())) {
 						value = nf.format(cell.getNumericCellValue());
 					} else {
-						value = sdf.format(HSSFDateUtil.getJavaDate(cell
-								.getNumericCellValue()));
+						value = sdf.format(HSSFDateUtil
+								.getJavaDate(cell.getNumericCellValue()));
 					}
-					System.out.println(i + "行" + j
-							+ " 列 is Number type ; DateFormt:"
-							+ cell.getCellStyle().getDataFormatString()
-							+ "\tValue:" + value);
+					System.out.println(
+							i + "行" + j + " 列 is Number type ; DateFormt:"
+									+ cell.getCellStyle().getDataFormatString()
+									+ "\tValue:" + value);
 					break;
 				case XSSFCell.CELL_TYPE_BOOLEAN:
 					value = cell.getBooleanCellValue();
@@ -115,13 +129,18 @@ public class ExcelServiceImpl implements ExcelService {
 		return list;
 	}
 
+	private List<List<Object>> readExcel2003(File file) throws IOException {
+		return readExcel2003(new FileInputStream(file));
+	}
+
 	/**
 	 * 读取Office 2007 excel
 	 */
-	private List<List<Object>> readExcel2007(File file) throws IOException {
+	private List<List<Object>> readExcel2007(InputStream is)
+			throws IOException {
 		List<List<Object>> list = new LinkedList<List<Object>>();
 		// 构造 XSSFWorkbook 对象，strPath 传入文件路径
-		XSSFWorkbook xwb = new XSSFWorkbook(new FileInputStream(file));
+		XSSFWorkbook xwb = new XSSFWorkbook(is);
 		// 读取第一章表格内容
 		XSSFSheet sheet = xwb.getSheetAt(0);
 		Object value = null;
@@ -137,7 +156,8 @@ public class ExcelServiceImpl implements ExcelService {
 				counter++;
 			}
 			List<Object> linked = new LinkedList<Object>();
-			for (int j = row.getFirstCellNum(); j <= row.getLastCellNum(); j++) {
+			for (int j = row.getFirstCellNum(); j <= row
+					.getLastCellNum(); j++) {
 				cell = row.getCell(j);
 				if (cell == null) {
 					continue;
@@ -158,12 +178,12 @@ public class ExcelServiceImpl implements ExcelService {
 							+ cell.getCellStyle().getDataFormatString());
 					if ("@".equals(cell.getCellStyle().getDataFormatString())) {
 						value = df.format(cell.getNumericCellValue());
-					} else if ("General".equals(cell.getCellStyle()
-							.getDataFormatString())) {
+					} else if ("General".equals(
+							cell.getCellStyle().getDataFormatString())) {
 						value = nf.format(cell.getNumericCellValue());
 					} else {
-						value = sdf.format(HSSFDateUtil.getJavaDate(cell
-								.getNumericCellValue()));
+						value = sdf.format(HSSFDateUtil
+								.getJavaDate(cell.getNumericCellValue()));
 					}
 					break;
 				case XSSFCell.CELL_TYPE_BOOLEAN:
@@ -188,15 +208,19 @@ public class ExcelServiceImpl implements ExcelService {
 		return list;
 	}
 
+	private List<List<Object>> readExcel2007(File file) throws IOException {
+		return readExcel2007(new FileInputStream(file));
+	}
+
 	@Override
-	public void download(String path, HttpServletResponse response)
-			throws IOException {
+	public void download(String filename, InputStream is,
+			HttpServletResponse response) throws IOException {
 		// path是指欲下载的文件的路径。
-		File file = new File(path);
+		// File file = new File(path);
 		// 取得文件名。
-		String filename = file.getName();
+		// String filename = file.getName();
 		// 以流的形式下载文件。
-		InputStream fis = new BufferedInputStream(new FileInputStream(path));
+		InputStream fis = new BufferedInputStream(is);
 		byte[] buffer = new byte[fis.available()];
 		fis.read(buffer);
 		fis.close();
@@ -205,7 +229,7 @@ public class ExcelServiceImpl implements ExcelService {
 		// 设置response的Header
 		response.addHeader("Content-Disposition", "attachment;filename="
 				+ new String(filename.getBytes(), "ISO-8859-1"));
-		response.addHeader("Content-Length", "" + file.length());
+		// response.addHeader("Content-Length", "" + file.length());
 		OutputStream toClient = new BufferedOutputStream(
 				response.getOutputStream());
 		response.setContentType("application/vnd.ms-excel;charset=gb2312");
@@ -215,20 +239,28 @@ public class ExcelServiceImpl implements ExcelService {
 	}
 
 	@Override
+	public void download(String filename, String path,
+			HttpServletResponse response) throws IOException {
+		download(filename, new FileInputStream(path), response);
+	}
+
+	@Override
 	public String export2003(String fileName, HttpServletResponse response)
 			throws IOException {
 		String docsPath;
-		Resource resource = new ClassPathResource(Globals.DOC + File.separator
-				+ fileName + Globals.SUFFIX_XLS);
+		String filename = fileName + Globals.SUFFIX_XLS;
+		Resource resource = new ClassPathResource(
+				Globals.DOC + File.separator + fileName + Globals.SUFFIX_XLS);
 		if (resource.exists()) {
 			docsPath = resource.getFile().getPath();
 		} else {
-			String imagesPath = Globals.IMG_PATH + File.separator + "tomcat"
+			String imagesPath = Globals.IMG + File.separator + "tomcat"
 					+ Globals.SUFFIX_PNG;
 			ExcelExportUtil.export2003(imagesPath, Globals.DOC_PATH);
 			docsPath = Globals.DOC_PATH + File.separator + Globals.EXPORT_BOOK;
+			filename = Globals.EXPORT_BOOK;
 		}
-		download(docsPath, response);
+		download(filename, docsPath, response);
 		return docsPath;
 	}
 
@@ -238,22 +270,22 @@ public class ExcelServiceImpl implements ExcelService {
 		String filePath = Globals.DOC_PATH + File.separator
 				+ Globals.EXPORT_2007;
 		ExcelExportUtil.export2007(filePath);
-		download(filePath, response);
+		download(Globals.EXPORT_2007, filePath, response);
 		return filePath;
 	}
 
 	@Override
 	public String template(String fileName, HttpServletResponse response)
 			throws IOException {
-		Resource resource = new ClassPathResource(Globals.DOC + File.separator
-				+ fileName + Globals.SUFFIX_XLS);
-		String templatePath = resource.getFile().getPath();
+		Resource resource = new ClassPathResource(
+				Globals.DOC + File.separator + fileName + Globals.SUFFIX_XLS);
+		InputStream is = resource.getInputStream();
 		String exportFileName = fileName + System.currentTimeMillis()
 				+ Globals.SUFFIX_XLS;// 导出Excel文件名
 		String exportFilePath = Globals.DOC_PATH + File.separator
 				+ exportFileName;
 		ExcelTemplateUtil excel = ExcelTemplateUtil.getInstance()
-				.readTemplatePath(templatePath);
+				.readTemplatePath(is);
 		for (int i = 0; i < 5; i++) {
 			excel.creatNewRow();
 			excel.createNewCol("Col" + i);
@@ -267,16 +299,15 @@ public class ExcelServiceImpl implements ExcelService {
 		excel.replaceFind(datas);
 		excel.insertSer();
 		excel.writeToFile(exportFilePath);
-		download(exportFilePath, response);
+		download(exportFileName, exportFilePath, response);
 		return exportFilePath;
 	}
 
 	@Override
 	public String replace(String fileName, HttpServletResponse response)
 			throws IOException {
-		Resource resource = new ClassPathResource(Globals.DOC + File.separator
-				+ fileName + Globals.SUFFIX_XLS);
-		String templatePath = resource.getFile().getPath();
+		Resource resource = new ClassPathResource(
+				Globals.DOC + File.separator + fileName + Globals.SUFFIX_XLS);
 		String exportFileName = fileName + System.currentTimeMillis()
 				+ Globals.SUFFIX_XLS;// 导出Excel文件名
 		String exportFilePath = Globals.DOC_PATH + File.separator
@@ -296,8 +327,9 @@ public class ExcelServiceImpl implements ExcelService {
 		voContent.setValue("替换的内容");
 		datas.add(voCompany);
 		datas.add(voContent);
-		ExcelReplaceUtil.replaceModel(datas, templatePath, exportFilePath);
-		download(exportFilePath, response);
+		InputStream is = resource.getInputStream();
+		ExcelReplaceUtil.replaceModel(datas, is, exportFilePath);
+		download(exportFileName, exportFilePath, response);
 		return exportFilePath;
 	}
 }

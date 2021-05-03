@@ -8,9 +8,9 @@
 	<version>${revision}</version>
 	<name>Java POI</name>
 	<description>Java POI</description>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<properties>
-		<revision>1.0</revision>
+		<revision>1.1</revision>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.8</java.version>
 		<poi.version>3.17</poi.version>
@@ -95,8 +95,28 @@
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-war-plugin</artifactId>
-				<version>3.2.3</version>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>3.0.2</version>
+			</plugin>
+			<plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>dockerfile-maven-plugin</artifactId>
+				<version>1.4.5</version>
+				<executions>
+					<execution>
+						<id>default</id>
+						<goals>
+							<goal>build</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<repository>${groupId}/${project.artifactId}</repository>
+					<!-- <tag>${project.version}</tag> -->
+					<buildArgs>
+						<JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
+					</buildArgs>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

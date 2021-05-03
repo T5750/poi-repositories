@@ -1,7 +1,9 @@
 package t5750.poi.util;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.InputStream;
 import java.util.List;
 
 import org.apache.poi.hssf.usermodel.HSSFCell;
@@ -24,11 +26,10 @@ public class ExcelReplaceUtil {
 	 *            Excel生成文件路径
 	 */
 	public static boolean replaceModel(List<ExcelReplaceDataVO> datas,
-			String sourceFilePath, String targetFilePath) {
+			InputStream is, String targetFilePath) {
 		boolean bool = true;
 		try {
-			POIFSFileSystem fs = new POIFSFileSystem(new FileInputStream(
-					sourceFilePath));
+			POIFSFileSystem fs = new POIFSFileSystem(is);
 			HSSFWorkbook wb = new HSSFWorkbook(fs);
 			HSSFSheet sheet = wb.getSheetAt(0);
 			for (ExcelReplaceDataVO data : datas) {
@@ -52,5 +53,12 @@ public class ExcelReplaceUtil {
 			e.printStackTrace();
 		}
 		return bool;
+	}
+
+	public static boolean replaceModel(List<ExcelReplaceDataVO> datas,
+			String sourceFilePath, String targetFilePath)
+			throws FileNotFoundException {
+		return replaceModel(datas, new FileInputStream(sourceFilePath),
+				targetFilePath);
 	}
 }
