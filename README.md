@@ -9,7 +9,7 @@
 - https://poix.readthedocs.io
 
 ## Getting Started
-![apache-poi](https://www.wailian.work/images/2019/07/23/apache-poi-min-min.png)
+![](https://s0.wailian.download/2019/07/23/apache-poi-min-min.png)
 
 Step 1: Download
 ```

@@ -1,1 +1,2 @@
 sphinx-markdown-tables
+docutils<0.18
