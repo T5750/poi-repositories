@@ -18,7 +18,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'poi'
-copyright = '2021, T5750'
+copyright = '2022, T5750'
 author = 'T5750'
 
 # The full version, including alpha/beta/rc tags
