@@ -48,7 +48,7 @@ public class ExcelTemplateUtil {
 	/**
 	 * 读取模板(从classpath中)
 	 *
-	 * @param path
+	 * @param calsspath
 	 *            模板路径
 	 * @return ExcelTemplate
 	 */
@@ -57,9 +57,6 @@ public class ExcelTemplateUtil {
 			workbook = WorkbookFactory.create(
 					ExcelTemplateUtil.class.getResourceAsStream(calsspath));
 			initTemplate();
-		} catch (InvalidFormatException e) {
-			e.printStackTrace();
-			throw new RuntimeException("读取模板格式有错!请检查.");
 		} catch (IOException e) {
 			e.printStackTrace();
 			throw new RuntimeException("读取模板文件不存在!请检查.");
@@ -78,9 +75,6 @@ public class ExcelTemplateUtil {
 		try {
 			workbook = WorkbookFactory.create(new File(path));
 			initTemplate();
-		} catch (InvalidFormatException e) {
-			e.printStackTrace();
-			throw new RuntimeException("读取模板格式有错!请检查.");
 		} catch (IOException e) {
 			e.printStackTrace();
 			throw new RuntimeException("读取模板文件不存在!请检查.");
@@ -92,9 +86,6 @@ public class ExcelTemplateUtil {
 		try {
 			workbook = WorkbookFactory.create(is);
 			initTemplate();
-		} catch (InvalidFormatException e) {
-			e.printStackTrace();
-			throw new RuntimeException("读取模板格式有错!请检查.");
 		} catch (IOException e) {
 			e.printStackTrace();
 			throw new RuntimeException("读取模板文件不存在!请检查.");
@@ -170,7 +161,7 @@ public class ExcelTemplateUtil {
 			return;
 		for (Row row : sheet) {
 			for (Cell cell : row) {
-				if (cell.getCellType() != Cell.CELL_TYPE_STRING)
+				if (cell.getCellType() != CellType.STRING)
 					continue;
 				String value = cell.getStringCellValue().trim();
 				if (value.startsWith("#")) {
@@ -267,7 +258,7 @@ public class ExcelTemplateUtil {
 	private void initConfigData() {
 		for (Row row : sheet) {
 			for (Cell cell : row) {
-				if (cell.getCellType() != Cell.CELL_TYPE_STRING)
+				if (cell.getCellType() != CellType.STRING)
 					continue;
 				String value = cell.getStringCellValue().trim();
 				// 获取开始位置,初始化数据

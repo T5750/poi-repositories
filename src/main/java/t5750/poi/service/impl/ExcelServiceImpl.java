@@ -4,10 +4,12 @@ import java.io.*;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
-
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.poi.hssf.usermodel.*;
+import org.apache.poi.hssf.usermodel.HSSFCell;
+import org.apache.poi.hssf.usermodel.HSSFRow;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -15,7 +17,6 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
-
 import t5750.poi.command.ExcelReplaceDataVO;
 import t5750.poi.service.ExcelService;
 import t5750.poi.util.*;
@@ -84,19 +85,19 @@ public class ExcelServiceImpl implements ExcelService {
 						"yyyy-MM-dd HH:mm:ss");// 格式化日期字符串
 				DecimalFormat nf = new DecimalFormat("0.00");// 格式化数字
 				switch (cell.getCellType()) {
-				case XSSFCell.CELL_TYPE_STRING:
+				case STRING:
 					value = cell.getStringCellValue();
 					System.out.println(i + "行" + j + " 列 is String type"
 							+ "\tValue:" + value);
 					break;
-				case XSSFCell.CELL_TYPE_NUMERIC:
+				case NUMERIC:
 					if ("@".equals(cell.getCellStyle().getDataFormatString())) {
 						value = df.format(cell.getNumericCellValue());
 					} else if ("General".equals(
 							cell.getCellStyle().getDataFormatString())) {
 						value = nf.format(cell.getNumericCellValue());
 					} else {
-						value = sdf.format(HSSFDateUtil
+						value = sdf.format(org.apache.poi.ss.usermodel.DateUtil
 								.getJavaDate(cell.getNumericCellValue()));
 					}
 					System.out.println(
@@ -104,12 +105,12 @@ public class ExcelServiceImpl implements ExcelService {
 									+ cell.getCellStyle().getDataFormatString()
 									+ "\tValue:" + value);
 					break;
-				case XSSFCell.CELL_TYPE_BOOLEAN:
+				case BOOLEAN:
 					value = cell.getBooleanCellValue();
 					System.out.println(i + "行" + j + " 列 is Boolean type"
 							+ "\tValue:" + value);
 					break;
-				case XSSFCell.CELL_TYPE_BLANK:
+				case BLANK:
 					value = "";
 					System.out.println(i + "行" + j + " 列 is Blank type"
 							+ "\tValue:" + value);
@@ -168,11 +169,11 @@ public class ExcelServiceImpl implements ExcelService {
 						"yyyy-MM-dd HH:mm:ss");// 格式化日期字符串
 				DecimalFormat nf = new DecimalFormat("0.00");// 格式化数字
 				switch (cell.getCellType()) {
-				case XSSFCell.CELL_TYPE_STRING:
+				case STRING:
 					System.out.println(i + "行" + j + " 列 is String type");
 					value = cell.getStringCellValue();
 					break;
-				case XSSFCell.CELL_TYPE_NUMERIC:
+				case NUMERIC:
 					System.out.println(i + "行" + j
 							+ " 列 is Number type ; DateFormt:"
 							+ cell.getCellStyle().getDataFormatString());
@@ -182,15 +183,15 @@ public class ExcelServiceImpl implements ExcelService {
 							cell.getCellStyle().getDataFormatString())) {
 						value = nf.format(cell.getNumericCellValue());
 					} else {
-						value = sdf.format(HSSFDateUtil
+						value = sdf.format(org.apache.poi.ss.usermodel.DateUtil
 								.getJavaDate(cell.getNumericCellValue()));
 					}
 					break;
-				case XSSFCell.CELL_TYPE_BOOLEAN:
+				case BOOLEAN:
 					System.out.println(i + "行" + j + " 列 is Boolean type");
 					value = cell.getBooleanCellValue();
 					break;
-				case XSSFCell.CELL_TYPE_BLANK:
+				case BLANK:
 					System.out.println(i + "行" + j + " 列 is Blank type");
 					value = "";
 					break;

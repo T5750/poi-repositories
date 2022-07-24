@@ -51,7 +51,7 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public Product getById(Long id) {
-		return productRepository.findOne(id);
+		return productRepository.findById(id).get();
 	}
 
 	@Override
@@ -62,7 +62,7 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public void delete(Long id) {
-		productRepository.delete(id);
+		productRepository.deleteById(id);
 	}
 
 	@Override
@@ -104,7 +104,7 @@ public class ProductServiceImpl implements ProductService {
 		for (int i = 1; i < list.size(); i++) {
 			List<Object> objList = list.get(i);
 			Long id = Long.valueOf(objList.get(0).toString());
-			boolean flag = productRepository.exists(id);
+			boolean flag = productRepository.existsById(id);
 			if (!flag) {
 				Product product = new Product();
 				product.setId(id);

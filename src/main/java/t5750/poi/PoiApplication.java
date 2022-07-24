@@ -2,7 +2,7 @@ package t5750.poi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.web.support.SpringBootServletInitializer;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import t5750.poi.util.Globals;
 
 import java.io.File;

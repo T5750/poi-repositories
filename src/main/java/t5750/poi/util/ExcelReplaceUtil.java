@@ -11,7 +11,7 @@ import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.poifs.filesystem.POIFSFileSystem;
-
+import org.apache.poi.ss.usermodel.CellType;
 import t5750.poi.command.ExcelReplaceDataVO;
 
 public class ExcelReplaceUtil {
@@ -20,7 +20,7 @@ public class ExcelReplaceUtil {
 	 *
 	 * @param datas
 	 *            文档数据
-	 * @param sourceFilePath
+	 * @param is
 	 *            Excel模板文件路径
 	 * @param targetFilePath
 	 *            Excel生成文件路径
@@ -40,7 +40,7 @@ public class ExcelReplaceUtil {
 				// 替换单元格内容
 				str = str.replace(data.getKey(), data.getValue());
 				// 写入单元格内容
-				cell.setCellType(HSSFCell.CELL_TYPE_STRING);
+				cell.setCellType(CellType.STRING);
 				// cell.setEncoding(HSSFCell.ENCODING_UTF_16);
 				cell.setCellValue(str);
 			}

@@ -71,7 +71,7 @@ public class ExcelExportUtil<T> {
 		// 生成一个样式
 		HSSFCellStyle style = workbook.createCellStyle();
 		// 设置这些样式
-		style.setFillForegroundColor(HSSFColor.SKY_BLUE.index);
+		style.setFillForegroundColor(HSSFColor.HSSFColorPredefined.SKY_BLUE.getIndex());
 		style.setFillPattern(FillPatternType.SOLID_FOREGROUND);
 		style.setBorderBottom(BorderStyle.THIN);
 		style.setBorderLeft(BorderStyle.THIN);
@@ -80,14 +80,14 @@ public class ExcelExportUtil<T> {
 		style.setAlignment(HorizontalAlignment.CENTER);
 		// 生成一个字体
 		HSSFFont font = workbook.createFont();
-		font.setColor(HSSFColor.VIOLET.index);
+		font.setColor(HSSFColor.HSSFColorPredefined.VIOLET.getIndex());
 		font.setFontHeightInPoints((short) 12);
 		font.setBold(true);
 		// 把字体应用到当前的样式
 		style.setFont(font);
 		// 生成并设置另一个样式
 		HSSFCellStyle style2 = workbook.createCellStyle();
-		style2.setFillForegroundColor(HSSFColor.LIGHT_YELLOW.index);
+		style2.setFillForegroundColor(HSSFColor.HSSFColorPredefined.LIGHT_YELLOW.getIndex());
 		style2.setFillPattern(FillPatternType.SOLID_FOREGROUND);
 		style2.setBorderBottom(BorderStyle.THIN);
 		style2.setBorderLeft(BorderStyle.THIN);
@@ -199,7 +199,7 @@ public class ExcelExportUtil<T> {
 							HSSFRichTextString richString = new HSSFRichTextString(
 									textValue);
 							HSSFFont font3 = workbook.createFont();
-							font3.setColor(HSSFColor.BLUE.index);
+							font3.setColor(HSSFColor.HSSFColorPredefined.BLUE.getIndex());
 							richString.applyFont(font3);
 							cell.setCellValue(richString);
 						}

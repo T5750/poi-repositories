@@ -34,10 +34,10 @@ public class TestReadExcelDemo {
 					Cell cell = cellIterator.next();
 					// Check the cell type and format accordingly
 					switch (cell.getCellType()) {
-					case Cell.CELL_TYPE_NUMERIC:
+					case NUMERIC:
 						System.out.print(cell.getNumericCellValue() + "\t");
 						break;
-					case Cell.CELL_TYPE_STRING:
+					case STRING:
 						System.out.print(cell.getStringCellValue() + "\t");
 						break;
 					}

@@ -34,11 +34,11 @@ mvn clean spring-boot:run
 
 ### Runtime Environment
 - [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
-- [Spring Framework 4.3.8.RELEASE](http://projects.spring.io/spring-framework)
-- [Spring Boot 1.5.3.RELEASE](https://projects.spring.io/spring-boot)
-- [Derby 10.13.1.1](https://db.apache.org/derby/)
-- [Hibernate ORM 5.0.12.Final](http://hibernate.org/orm)
-- [POI 3.17](https://poi.apache.org/download.html)
+- [Spring Framework 5.x](https://spring.io/projects/spring-framework)
+- [Spring Boot 2.x](https://spring.io/projects/spring-boot)
+- [Derby 10.x](https://db.apache.org/derby/)
+- [Hibernate ORM 5.x](http://hibernate.org/orm)
+- [POI 5.x](https://poi.apache.org/download.html)
 - [Bootstrap 4.3.1](https://github.com/twbs/bootstrap)
 - [Docker 19.x](https://www.docker.com/)
 
