@@ -1,5 +1,8 @@
 # Tutorial
 
+## Docs
+- [https://poix.readthedocs.io](https://poix.readthedocs.io)
+
 ## Getting Started
 ![](https://s0.wailian.download/2019/07/23/apache-poi-min-min.png)
 
@@ -17,7 +20,7 @@ mvn clean spring-boot:run
 ```
 [http://localhost:8080/poi](http://localhost:8080/poi)
 
-### Test
+### Tests
 - `TestReadExcel`, `TestReadExcelDemo`
 - `TestExportExcel`, `TestExportExcel2007`, `TestWriteExcelDemo`
 - `TestTemplate`, `TestExcelReplace`
@@ -31,7 +34,7 @@ mvn clean spring-boot:run
 - [Derby 10.x](https://db.apache.org/derby/)
 - [Hibernate ORM 5.x](http://hibernate.org/orm)
 - [POI 5.x](https://poi.apache.org/download.html)
-- [Bootstrap 4.3.1](https://github.com/twbs/bootstrap)
+- [Bootstrap 4.x](https://github.com/twbs/bootstrap)
 - [Docker 19.x](https://www.docker.com/)
 
 ### Classes
@@ -56,17 +59,17 @@ Another useful class **FormulaEvaluator** is used to evaluate the formula cells 
 
 ### Write an excel file
 1. Create a workbook
-1. Create a sheet in workbook
-1. Create a row in sheet
-1. Add cells in sheet
-1. Repeat step 3 and 4 to write more data
+3. Create a sheet in workbook
+4. Create a row in sheet
+5. Add cells in sheet
+6. Repeat step 3 and 4 to write more data
 
 ### Read an excel file
 1. Create workbook instance from excel sheet
-1. Get to the desired sheet
-1. Increment row number
-1. iterate over all cells in a row
-1. repeat step 3 and 4 until all data is read
+3. Get to the desired sheet
+4. Increment row number
+5. iterate over all cells in a row
+6. repeat step 3 and 4 until all data is read
 
 ## Getting Help
 Having trouble with T5750's POI? We’d like to help!
@@ -74,10 +77,14 @@ Having trouble with T5750's POI? We’d like to help!
 - Report bugs at [https://github.com/T5750/poi/issues](https://github.com/T5750/poi/issues).
 
 ## Branch
-View servlet branch at [https://github.com/T5750/poi/tree/servlet](https://github.com/T5750/poi/tree/servlet).
+- View POI 3.x branch at [https://github.com/T5750/poi/tree/poi3](https://github.com/T5750/poi/tree/poi3).
+- View servlet branch at [https://github.com/T5750/poi/tree/servlet](https://github.com/T5750/poi/tree/servlet).
 
 ## References
 - [Java POI导出EXCEL经典实现 Java导出Excel弹出下载框](https://blog.csdn.net/evangel_z/article/details/7332535)
 - [Java POI读取Office excel (2003,2007)及相关jar包](https://blog.csdn.net/evangel_z/article/details/7312050)
 - [HSSF and XSSF Examples](http://poi.apache.org/spreadsheet/examples.html)
 - [Apache POI – Read and Write Excel File in Java](https://howtodoinjava.com/library/readingwriting-excel-files-in-java-poi-tutorial/)
+
+## License
+This project is Open Source software released under the [Apache 2.0 license](http://www.apache.org/licenses/LICENSE-2.0.html).
