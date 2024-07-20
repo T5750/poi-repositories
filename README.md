@@ -2,8 +2,8 @@
 
 [![License](https://img.shields.io/badge/license-Apache-blue.svg)](https://github.com/T5750/poi-repositories/blob/master/LICENSE.txt)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/T5750/poi-repositories/pulls)
-[![GitHub stars](https://img.shields.io/github/stars/T5750/poi.svg?style=social&label=Stars)](https://github.com/T5750/poi-repositories)
-[![GitHub forks](https://img.shields.io/github/forks/T5750/poi.svg?style=social&label=Fork)](https://github.com/T5750/poi-repositories)
+[![GitHub stars](https://img.shields.io/github/stars/T5750/poi-repositories.svg?style=social&label=Stars)](https://github.com/T5750/poi-repositories)
+[![GitHub forks](https://img.shields.io/github/forks/T5750/poi-repositories.svg?style=social&label=Fork)](https://github.com/T5750/poi-repositories)
 
 ## Docs
 - [https://poix.readthedocs.io](https://poix.readthedocs.io)
