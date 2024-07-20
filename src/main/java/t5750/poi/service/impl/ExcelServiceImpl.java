@@ -294,7 +294,7 @@ public class ExcelServiceImpl implements ExcelService {
 			excel.createNewCol(i);
 		}
 		Map<String, String> datas = new HashMap<String, String>();
-		datas.put("title", "Apache POI");
+		datas.put("title", "POI Repositories");
 		datas.put("content", "the Java API for Microsoft Documents");
 		datas.put("date", DateUtil.format(new Date()));
 		excel.replaceFind(datas);

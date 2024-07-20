@@ -1,7 +1,7 @@
-# Apache POI
+# POI Repositories
 
-## Apache POI RTD
-Read the Docs for Apache POI
+## POI Repositories RTD
+Read the Docs for POI Repositories
 - Docs: https://poix.readthedocs.io
 - Source: https://github.com/T5750/poi
 

@@ -1,4 +1,4 @@
-# Apache POI
+# POI Repositories
 
 [![License](https://img.shields.io/badge/license-Apache-blue.svg)](https://github.com/T5750/poi/blob/master/LICENSE.txt)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/T5750/poi/pulls)
@@ -13,7 +13,7 @@
 
 Step 1: Download
 ```
-git clone https://github.com/T5750/poi.git
+git clone https://github.com/T5750/poi-repositories.git
 cd poi
 ```
 

@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Apache POI
+POI Repositories
 ===============================
 Read and Write Excel file using Java and Apache POI, I hope this can help you.
 
