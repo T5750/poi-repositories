@@ -28,8 +28,8 @@ Windows中设置4个环境变量：`JAVA_HOME`、`CLASSPATH`、`M2_HOME`、`PATH
 
 ## 运行
 ```
-git clone https://github.com/T5750/poi.git
-cd poi
+git clone https://github.com/T5750/poi-repositories.git
+cd poi-repositories
 ```
 
 ### Embedded Tomcat

@@ -14,7 +14,7 @@
 Step 1: Download
 ```
 git clone https://github.com/T5750/poi-repositories.git
-cd poi
+cd poi-repositories
 ```
 
 Step 2: Start Server

@@ -8,8 +8,8 @@
 
 Step 1: Download
 ```
-git clone https://github.com/T5750/poi.git
-cd poi
+git clone https://github.com/T5750/poi-repositories.git
+cd poi-repositories
 ```
 
 Step 2: Start Server
