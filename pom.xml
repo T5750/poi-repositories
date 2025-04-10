@@ -13,7 +13,7 @@
 		<revision>1.2</revision>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.8</java.version>
-		<poi.version>5.2.2</poi.version>
+		<poi.version>5.4.0</poi.version>
 		<spring-boot-version>2.7.1</spring-boot-version>
 		<hutool.version>5.8.27</hutool.version>
 		<relativePath/>
